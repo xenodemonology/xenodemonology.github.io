@@ -94,3 +94,178 @@ nav ul li img:hover {
     text-shadow: 2px 2px #ff0000, -2px -2px #00ffff;
     animation: glitch 0.2s infinite alternate;
 }
+
+/* --- PLACE AUDIO STYLES HERE --- */
+
+.audio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.audio-item {
+    background: rgba(0, 255, 0, 0.1);
+    padding: 15px;
+    border: 1px solid #00ff00;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 0 5px #00ff00;
+}
+
+.audio-item h2 {
+    font-size: 1.2rem;
+    color: #00ff00;
+    margin-bottom: 10px;
+}
+
+/* --- PLACE TALKS STYLES HERE --- */
+
+.talks-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.talk-item {
+    background: rgba(0, 255, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #00ff00;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 0 5px #00ff00;
+}
+
+.talk-item h2 {
+    font-size: 1.5rem;
+    color: #00ff00;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.talk-item p {
+    font-size: 1rem;
+    color: #00ff00;
+    margin: 5px 0;
+}
+
+.talk-label {
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: 1px 1px #00ff00;
+}
+
+/* --- PLACE Exhibitions STYLES HERE --- */
+
+.exhibition-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.exhibition-item {
+    background: rgba(0, 255, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #00ff00;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 0 5px #00ff00;
+}
+
+.exhibition-item h2 {
+    font-size: 1.5rem;
+    color: #00ff00;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.exhibition-item p {
+    font-size: 1rem;
+    color: #00ff00;
+    margin: 5px 0;
+}
+
+.exhibition-label {
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: 1px 1px #00ff00;
+}
+
+/* Image Gallery */
+.image-gallery {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 40px;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.image-track {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+}
+
+.image-track img {
+    width: 500px;
+    height: auto;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-track img:hover {
+    transform: scale(1.05);
+}
+
+/* Terminal Look and Feel */
+body {
+    background-color: black;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.terminal {
+    width: 80%;
+    height: 70%;
+    border: 1px solid #00ff00;
+    padding: 20px;
+    background-color: black;
+    overflow-y: auto;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+input.input-field {
+    width: 100%;
+    background: black;
+    border: none;
+    color: #00ff00;
+    font-size: 1.1rem;
+    padding: 10px;
+    margin-top: 10px;
+    outline: none;
+}
+
+input.input-field:focus {
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+}
+
