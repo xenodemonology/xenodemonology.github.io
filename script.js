@@ -1,7 +1,8 @@
-// Simple example: Highlight active navigation link
-document.querySelectorAll('nav ul li a').forEach(link => {
-    if(link.href === window.location.href){
-        link.style.color = '#fff';
-        link.style.textDecoration = 'underline';
-    }
+document.addEventListener("DOMContentLoaded", function() {
+    const body = document.body;
+    setInterval(() => {
+        let glitchIntensity = Math.random() * 2;
+        body.style.transform = `translate(${glitchIntensity}px, ${glitchIntensity}px)`;
+        setTimeout(() => body.style.transform = "translate(0,0)", 100);
+    }, 500);
 });

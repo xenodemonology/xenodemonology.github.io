@@ -1,65 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #000;
-    color: #0f0;
-    margin: 0;
-    padding: 20px;
-    line-height: 1.6;
-}
-
-header {
+    background: #000;
+    color: #00ff00;
+    font-family: 'VT323', monospace;
     text-align: center;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    font-size: 2.5em;
     margin: 0;
+    padding: 0;
 }
 
+/* CRT Scanlines */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/images/crt-overlay.png');
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* Navigation Pictographs */
 nav ul {
-    list-style-type: none;
-    padding: 0;
+    list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    padding: 20px;
 }
 
 nav ul li {
-    display: inline;
+    margin: 0 15px;
 }
 
-nav ul li a {
-    color: #0f0;
+nav ul li img {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li img:hover {
+    transform: scale(1.2);
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+    0% { text-shadow: 2px 2px #ff0000; }
+    25% { text-shadow: -2px -2px #00ff00; }
+    50% { text-shadow: 2px -2px #0000ff; }
+    75% { text-shadow: -2px 2px #ffff00; }
+    100% { text-shadow: 2px 2px #ff0000; }
+}
+
+.glitch {
+    font-size: 2.5rem;
+    animation: glitch 0.2s infinite alternate;
+}
+
+/* Flickering Text */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.flicker {
+    font-size: 1.2rem;
+    animation: flicker 1.5s infinite alternate;
+}
+
+
+/* --- PLACE THE TEXT LIST STYLES HERE --- */
+
+/* Texts Page Styles */
+.text-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.text-list li {
+    margin: 10px 0;
+}
+
+.text-list a {
+    color: #00ff00;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
 }
 
-nav ul li a img {
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.9em;
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
-}
-
-.portfolio-grid img {
-    width: 100%;
-    height: auto;
-    border: 1px solid #0f0;
+.text-list a:hover {
+    text-shadow: 2px 2px #ff0000, -2px -2px #00ffff;
+    animation: glitch 0.2s infinite alternate;
 }
