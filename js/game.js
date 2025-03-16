@@ -35,6 +35,7 @@ function updateOutput(text) {
 }
 
 function processCommand(command) {
+    console.log(`Processing command: ${command}`); // Debugging
     command = command.toLowerCase().trim();
 
     if (command === "start") {
@@ -65,7 +66,7 @@ function processCommand(command) {
     } else if (command === "destroy" && gameState.hacked && !gameState.aiProjectLaunched) {
         updateOutput(responses.destroy);
     } else if (command === "shut down" && !gameState.securityUsed) {
-        updateOutput(responses.shut down);
+        updateOutput(responses["shut down"]);
         gameState.securityUsed = true;
     } else if (command === "use" && !gameState.securityUsed) {
         updateOutput(responses.use);
@@ -79,10 +80,10 @@ function processCommand(command) {
     }
 }
 
-// Change from 'keypress' to 'keydown' for better compatibility
 inputField.addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
         const userCommand = inputField.value;
+        console.log(`User input: ${userCommand}`); // Debugging
         inputField.value = "";
         updateOutput(`> ${userCommand}`);
         processCommand(userCommand);
@@ -91,3 +92,4 @@ inputField.addEventListener("keydown", function(e) {
 
 // Initiate game
 updateOutput("Type 'start' to begin the adventure.");
+
