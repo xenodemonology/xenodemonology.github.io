@@ -79,7 +79,8 @@ function processCommand(command) {
     }
 }
 
-inputField.addEventListener("keypress", function(e) {
+// Change from 'keypress' to 'keydown' for better compatibility
+inputField.addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
         const userCommand = inputField.value;
         inputField.value = "";
@@ -90,4 +91,3 @@ inputField.addEventListener("keypress", function(e) {
 
 // Initiate game
 updateOutput("Type 'start' to begin the adventure.");
-
