@@ -1,11 +1,10 @@
-/* Importing a medieval-style font */
 @import url('https://fonts.googleapis.com/css2?family=Jacquard+12+Charted&display=swap');
 
 body {
-    background-color: #1a1a1a; /* Dark grey background with a medieval vibe */
-    color: #d0c18e; /* Pale golden color for the text */
-    font-family: 'MedievalSharp', cursive, 'Courier New', monospace;
-    font-size: 1.4rem; /* Slightly larger text for better readability */
+    background-color: #000000; /* Black background for stark contrast */
+    color: #FFFFFF; /* White text for high visibility */
+    font-family: 'Jacquard 12 Charted', serif; /* Use custom Jacquard font */
+    font-size: 1.4rem; /* Slightly larger text for readability */
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -17,105 +16,42 @@ body {
     width: 100vw;            /* Full screen width */
 }
 
-/* Terminal Window Styling */
-.terminal {
-    width: 80%;
-    max-width: 900px;
-    height: 70%;
-    border: 2px solid #d0c18e;
-    padding: 20px;
-    background-color: #1a1a1a;
-    box-shadow: 0 0 10px #d0c18e;
-    overflow-y: auto;
-    color: #d0c18e;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    font-size: 1.5rem;
-    margin-top: 20px;
-    line-height: 1.8;
-}
-
-/* Custom Cursor Animation */
-@keyframes cursor {
-    0% { border-right: 2px solid #d0c18e; }
-    50% { border-right: 2px solid transparent; }
-    100% { border-right: 2px solid #d0c18e; }
-}
-
-.input-field {
-    background: transparent;
-    border: none;
-    color: #d0c18e;
-    font-family: 'MedievalSharp', cursive, 'Courier New', monospace;
-    font-size: 1.6rem;
+/* CRT Scanlines */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    outline: none;
-    caret-color: #d0c18e;
-    animation: cursor 0.8s steps(1) infinite;
-    margin-top: 10px;
+    height: 100%;
+    background: url('../assets/images/crt-overlay.png');
+    opacity: 0.2;
+    pointer-events: none;
 }
 
-/* Medieval Typewriter Effect for Links */
-@keyframes typewriting {
-    0% { width: 0; }
-    100% { width: 100%; }
-}
-
-.typewriter {
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid #d0c18e;
-    animation: typewriting 4s steps(40) 1s forwards, cursor 0.8s steps(1) infinite;
-}
-
-/* Flickering Text Effect for Title */
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-.flicker {
-    font-size: 2rem;
-    animation: flicker 1s infinite alternate;
-}
-
-/* Navigation Styling */
+/* Navigation Pictographs */
 nav ul {
     list-style: none;
-    padding: 0;
-    text-align: center;
-    margin: 20px 0;
     display: flex;
     justify-content: center;
-    gap: 30px; /* Space between items */
+    padding: 20px;
 }
 
 nav ul li {
-    display: inline-block;
+    margin: 0 15px;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #d0c18e;
-    font-size: 1.5rem;
-    text-shadow: 2px 2px #000000;
-    display: block;
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards;
+nav ul li img {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%);
+    transition: transform 0.3s ease-in-out;
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+nav ul li img:hover {
+    transform: scale(1.2);
 }
 
-nav ul li a:hover {
-    color: #ffff00;
-    text-shadow: 2px 2px #ff0000, -2px -2px #00ff00;
-    animation: glitch 0.2s infinite alternate;
-}
-
-/* Glitch Effect on hover */
+/* Glitch Effect */
 @keyframes glitch {
     0% { text-shadow: 2px 2px #ff0000; }
     25% { text-shadow: -2px -2px #00ff00; }
@@ -124,33 +60,23 @@ nav ul li a:hover {
     100% { text-shadow: 2px 2px #ff0000; }
 }
 
-nav ul li a:hover {
+.glitch {
+    font-size: 2.5rem;
     animation: glitch 0.2s infinite alternate;
 }
 
-/* Typewriter Text for Navigation Links */
-.typewriter-text {
-    font-size: 2rem;
-    font-family: 'MedievalSharp', cursive, 'Courier New', monospace;
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #d0c18e;
-    animation: typewriting 4s steps(40) 1s 1 normal both, cursor 0.8s steps(1) infinite;
+/* Flickering Text */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
-/* Noise Effect */
-@keyframes terminalNoise {
-    0% { opacity: 0.8; }
-    50% { opacity: 1; }
-    100% { opacity: 0.8; }
+.flicker {
+    font-size: 1.2rem;
+    animation: flicker 1.5s infinite alternate;
 }
 
-.noise {
-    animation: terminalNoise 0.5s infinite alternate;
-}
-
-/* Medieval Inspired Text Styling */
+/* Texts Page Styles */
 .text-list {
     list-style-type: none;
     padding: 0;
@@ -162,7 +88,7 @@ nav ul li a:hover {
 }
 
 .text-list a {
-    color: #d0c18e;
+    color: #00ff00;
     text-decoration: none;
     font-size: 1.2rem;
     transition: all 0.3s ease-in-out;
@@ -173,6 +99,7 @@ nav ul li a:hover {
     animation: glitch 0.2s infinite alternate;
 }
 
+/* Audio Page Styles */
 .audio-container {
     display: flex;
     flex-direction: column;
@@ -184,19 +111,20 @@ nav ul li a:hover {
 .audio-item {
     background: rgba(0, 255, 0, 0.1);
     padding: 15px;
-    border: 1px solid #d0c18e;
+    border: 1px solid #00ff00;
     width: 80%;
     max-width: 600px;
     text-align: center;
-    box-shadow: 0 0 5px #d0c18e;
+    box-shadow: 0 0 5px #00ff00;
 }
 
 .audio-item h2 {
     font-size: 1.2rem;
-    color: #d0c18e;
+    color: #00ff00;
     margin-bottom: 10px;
 }
 
+/* Talks Page Styles */
 .talks-list {
     display: flex;
     flex-direction: column;
@@ -208,33 +136,33 @@ nav ul li a:hover {
 .talk-item {
     background: rgba(0, 255, 0, 0.1);
     padding: 20px;
-    border: 1px solid #d0c18e;
+    border: 1px solid #00ff00;
     width: 80%;
     max-width: 600px;
     text-align: center;
-    box-shadow: 0 0 5px #d0c18e;
+    box-shadow: 0 0 5px #00ff00;
 }
 
 .talk-item h2 {
     font-size: 1.5rem;
-    color: #d0c18e;
+    color: #00ff00;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
 .talk-item p {
     font-size: 1rem;
-    color: #d0c18e;
+    color: #00ff00;
     margin: 5px 0;
 }
 
 .talk-label {
     font-weight: bold;
     color: #ff0000;
-    text-shadow: 1px 1px #d0c18e;
+    text-shadow: 1px 1px #00ff00;
 }
 
-/* Exhibition Styles */
+/* Exhibitions Page Styles */
 .exhibition-list {
     display: flex;
     flex-direction: column;
@@ -246,30 +174,30 @@ nav ul li a:hover {
 .exhibition-item {
     background: rgba(0, 255, 0, 0.1);
     padding: 20px;
-    border: 1px solid #d0c18e;
+    border: 1px solid #00ff00;
     width: 80%;
     max-width: 600px;
     text-align: center;
-    box-shadow: 0 0 5px #d0c18e;
+    box-shadow: 0 0 5px #00ff00;
 }
 
 .exhibition-item h2 {
     font-size: 1.5rem;
-    color: #d0c18e;
+    color: #00ff00;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
 .exhibition-item p {
     font-size: 1rem;
-    color: #d0c18e;
+    color: #00ff00;
     margin: 5px 0;
 }
 
 .exhibition-label {
     font-weight: bold;
     color: #ff0000;
-    text-shadow: 1px 1px #d0c18e;
+    text-shadow: 1px 1px #00ff00;
 }
 
 /* Image Gallery */
@@ -280,7 +208,7 @@ nav ul li a:hover {
     margin-top: 40px;
     padding: 10px 0;
     background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 10px #d0c18e;
+    box-shadow: 0 0 10px #00ff00;
 }
 
 .image-track {
@@ -292,5 +220,39 @@ nav ul li a:hover {
 .image-track img {
     width: 500px;
     height: auto;
-    border: 2px solid #
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-track img:hover {
+    transform: scale(1.05);
+}
+
+/* Terminal Look and Feel */
+.terminal {
+    width: 80%;
+    height: 70%;
+    border: 1px solid #00ff00;
+    padding: 20px;
+    background-color: black;
+    overflow-y: auto;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+input.input-field {
+    width: 100%;
+    background: black;
+    border: none;
+    color: #00ff00;
+    font-size: 1.1rem;
+    padding: 10px;
+    margin-top: 10px;
+    outline: none;
+}
+
+input.input-field:focus {
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+}
 
