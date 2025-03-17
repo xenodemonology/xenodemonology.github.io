@@ -22,7 +22,7 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     overflow-y: auto;
 }
@@ -32,7 +32,7 @@ pre {
     font-size: 1.2rem;
     white-space: pre-wrap;
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-family: 'Jacquard 12', serif;
 }
 
@@ -47,13 +47,8 @@ pre {
     outline: none;
     text-align: center;
     font-family: 'Jacquard 12', serif;
+    display: none; /* Starts hidden */
 }
 
-/* Blinking Cursor */
-@keyframes cursorBlink {
-    50% { border-right: 2px solid transparent; }
-}
-#command-input {
-    animation: cursorBlink 1s infinite;
-}
+
 

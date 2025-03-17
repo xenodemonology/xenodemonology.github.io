@@ -2,24 +2,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const terminalText = document.getElementById("terminal-text");
     const inputField = document.getElementById("command-input");
 
+    // Ensure input field starts hidden
+    inputField.style.display = "none"; 
+
     // Typing animation function
-    function typeTextEffect(text, speed = 30) {
+    function typeTextEffect(element, text, speed = 30, callback) {
         let i = 0;
         function type() {
             if (i < text.length) {
-                terminalText.innerHTML += text.charAt(i);
+                element.innerHTML += text.charAt(i);
                 i++;
                 setTimeout(type, speed);
-            } else {
-                inputField.style.display = "block"; // Show input after typing finishes
-                inputField.focus();
+            } else if (callback) {
+                callback(); // Show input field after typing
             }
         }
-        terminalText.innerHTML = ""; // Clear terminal before typing
         type();
     }
 
-    // Terminal intro text
+    // Terminal startup text
     const introText = `
 ███████╗██╗     ██╗     ██╗████████╗████████╗
 ██╔════╝██║     ██║     ██║╚══██╔══╝╚══██╔══╝
@@ -39,11 +40,13 @@ COMMANDS AVAILABLE:
 ───────────────────────────────────────────
 `;
 
-    // Run typing effect on page load
-    inputField.style.display = "none"; // Hide input initially
-    typeTextEffect(introText, 20);
+    // Run typing effect, then show input field
+    typeTextEffect(terminalText, introText, 20, function() {
+        inputField.style.display = "block";
+        inputField.focus();
+    });
 
-    // Process command input
+    // Handle command input
     inputField.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
