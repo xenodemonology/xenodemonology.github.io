@@ -1,258 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
 
 body {
-    background-color: #000000; /* Black background for stark contrast */
-    color: #FFFFFF; /* White text for high visibility */
-    font-family: 'Jacquard 12', serif; /* Use Jacquard 12 font */
-    font-size: 1.4rem; /* Slightly larger text for readability */
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center;     /* Center the content vertically */
-    flex-direction: column;  /* Stack elements vertically */
-    height: 100vh;           /* Full screen height */
-    width: 100vw;            /* Full screen width */
-}
-
-/* CRT Scanlines */
-.crt-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../assets/images/crt-overlay.png');
-    opacity: 0.2;
-    pointer-events: none;
-}
-
-/* Navigation Pictographs */
-nav ul {
-    list-style: none;
+    background-color: black;
+    color: #00ff00;
+    font-family: 'Jacquard 12', serif;
     display: flex;
     justify-content: center;
-    padding: 20px;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li img {
-    width: 40px;
-    height: 40px;
-    filter: invert(100%);
-    transition: transform 0.3s ease-in-out;
-}
-
-nav ul li img:hover {
-    transform: scale(1.2);
-}
-
-/* Glitch Effect */
-@keyframes glitch {
-    0% { text-shadow: 2px 2px #ff0000; }
-    25% { text-shadow: -2px -2px #00ff00; }
-    50% { text-shadow: 2px -2px #0000ff; }
-    75% { text-shadow: -2px 2px #ffff00; }
-    100% { text-shadow: 2px 2px #ff0000; }
-}
-
-.glitch {
-    font-size: 2.5rem;
-    animation: glitch 0.2s infinite alternate;
-}
-
-/* Flickering Text */
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-.flicker {
-    font-size: 1.2rem;
-    animation: flicker 1.5s infinite alternate;
-}
-
-/* Texts Page Styles */
-.text-list {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-.text-list li {
-    margin: 10px 0;
-}
-
-.text-list a {
-    color: #00ff00;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: all 0.3s ease-in-out;
-}
-
-.text-list a:hover {
-    text-shadow: 2px 2px #ff0000, -2px -2px #00ffff;
-    animation: glitch 0.2s infinite alternate;
-}
-
-/* Audio Page Styles */
-.audio-container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 20px;
-    margin-top: 30px;
+    height: 100vh;
+    margin: 0;
 }
 
-.audio-item {
-    background: rgba(0, 255, 0, 0.1);
-    padding: 15px;
-    border: 1px solid #00ff00;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 0 5px #00ff00;
-}
-
-.audio-item h2 {
-    font-size: 1.2rem;
-    color: #00ff00;
-    margin-bottom: 10px;
-}
-
-/* Talks Page Styles */
-.talks-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.talk-item {
-    background: rgba(0, 255, 0, 0.1);
-    padding: 20px;
-    border: 1px solid #00ff00;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 0 5px #00ff00;
-}
-
-.talk-item h2 {
-    font-size: 1.5rem;
-    color: #00ff00;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.talk-item p {
-    font-size: 1rem;
-    color: #00ff00;
-    margin: 5px 0;
-}
-
-.talk-label {
-    font-weight: bold;
-    color: #ff0000;
-    text-shadow: 1px 1px #00ff00;
-}
-
-/* Exhibitions Page Styles */
-.exhibition-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.exhibition-item {
-    background: rgba(0, 255, 0, 0.1);
-    padding: 20px;
-    border: 1px solid #00ff00;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 0 5px #00ff00;
-}
-
-.exhibition-item h2 {
-    font-size: 1.5rem;
-    color: #00ff00;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.exhibition-item p {
-    font-size: 1rem;
-    color: #00ff00;
-    margin: 5px 0;
-}
-
-.exhibition-label {
-    font-weight: bold;
-    color: #ff0000;
-    text-shadow: 1px 1px #00ff00;
-}
-
-/* Image Gallery */
-.image-gallery {
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-    margin-top: 40px;
-    padding: 10px 0;
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 10px #00ff00;
-}
-
-.image-track {
-    display: flex;
-    gap: 15px;
-    padding: 10px;
-}
-
-.image-track img {
-    width: 500px;
-    height: auto;
+/* Terminal Window */
+.terminal {
+    width: 90%;
+    max-width: 800px;
+    height: 75vh;
+    background: black;
     border: 2px solid #00ff00;
     box-shadow: 0 0 10px #00ff00;
-    transition: transform 0.3s ease-in-out;
-}
-
-.image-track img:hover {
-    transform: scale(1.05);
-}
-
-/* Terminal Look and Feel */
-.terminal {
-    width: 80%;
-    height: 70%;
-    border: 1px solid #00ff00;
     padding: 20px;
-    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     overflow-y: auto;
-    box-shadow: 0 0 10px #00ff00;
 }
 
-input.input-field {
+/* Terminal Text */
+pre {
+    font-size: 1.2rem;
+    white-space: pre-wrap;
+    width: 100%;
+    text-align: center;
+    font-family: 'Jacquard 12', serif;
+}
+
+/* Input Field */
+#command-input {
     width: 100%;
     background: black;
     border: none;
     color: #00ff00;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     padding: 10px;
-    margin-top: 10px;
     outline: none;
+    text-align: center;
+    font-family: 'Jacquard 12', serif;
 }
 
-input.input-field:focus {
-    border: 1px solid #00ff00;
-    box-shadow: 0 0 10px #00ff00;
+/* Blinking Cursor */
+@keyframes cursorBlink {
+    50% { border-right: 2px solid transparent; }
+}
+#command-input {
+    animation: cursorBlink 1s infinite;
 }
 
