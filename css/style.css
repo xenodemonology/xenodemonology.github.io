@@ -22,33 +22,41 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     overflow-y: auto;
 }
 
 /* Terminal Text */
-pre {
+#terminal-text {
     font-size: 1.2rem;
     white-space: pre-wrap;
     width: 100%;
     text-align: left;
     font-family: 'Jacquard 12', serif;
+    color: #00ff00; /* Ensures text is visible */
+    padding-bottom: 20px;
 }
 
 /* Input Field */
 #command-input {
     width: 100%;
     background: black;
-    border: none;
+    border: 1px solid #00ff00;
     color: #00ff00;
     font-size: 1.2rem;
     padding: 10px;
     outline: none;
     text-align: center;
     font-family: 'Jacquard 12', serif;
-    display: none; /* Starts hidden */
+    display: none; /* Starts hidden, but now properly revealed */
 }
 
-
+/* Blinking Cursor */
+@keyframes cursorBlink {
+    50% { border-right: 2px solid transparent; }
+}
+#command-input {
+    animation: cursorBlink 1s infinite;
+}
 

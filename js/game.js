@@ -6,17 +6,18 @@ document.addEventListener("DOMContentLoaded", function () {
     inputField.style.display = "none"; 
 
     // Typing animation function
-    function typeTextEffect(element, text, speed = 30, callback) {
+    function typeTextEffect(text, speed = 30, callback) {
         let i = 0;
         function type() {
             if (i < text.length) {
-                element.innerHTML += text.charAt(i);
+                terminalText.innerHTML += text.charAt(i);
                 i++;
                 setTimeout(type, speed);
             } else if (callback) {
                 callback(); // Show input field after typing
             }
         }
+        terminalText.innerHTML = ""; // Clear terminal before typing
         type();
     }
 
@@ -41,8 +42,8 @@ COMMANDS AVAILABLE:
 `;
 
     // Run typing effect, then show input field
-    typeTextEffect(terminalText, introText, 20, function() {
-        inputField.style.display = "block";
+    typeTextEffect(introText, 20, function() {
+        inputField.style.display = "block"; // Make input visible after text loads
         inputField.focus();
     });
 
@@ -74,22 +75,5 @@ COMMANDS AVAILABLE:
 
             case "decrypt talks":
                 typeText("\n> Decrypting lecture data... [LOADING]");
-                setTimeout(() => { window.location.href = "talks.html"; }, 2000);
-                break;
-
-            case "exit system":
-                typeText("\n> SYSTEM SHUTTING DOWN...");
-                setTimeout(() => { window.close(); }, 2000);
-                break;
-
-            default:
-                typeText("\nERROR: COMMAND NOT RECOGNIZED.");
-        }
-    }
-
-    function typeText(text) {
-        terminalText.innerHTML += `\n> ${text}`;
-        terminalText.scrollTop = terminalText.scrollHeight;
-    }
-});
+                setTimeout(() => { window.location.href = "talks.html"; }
 
