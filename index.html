@@ -3,33 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Networked Reality</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Elliott Higgs - Terminal Interface</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="crt-overlay"></div>
+    <div class="terminal">
+        <pre id="terminal-text">
+    ██╗███████╗ ██████╗  ██████╗ ███████╗████████╗
+    ██║██╔════╝██╔═══██╗██╔═══██╗██╔════╝╚══██╔══╝
+    ██║███████╗██║   ██║██║   ██║█████╗     ██║   
+    ██║╚════██║██║   ██║██║   ██║██╔══╝     ██║   
+    ██║███████║╚██████╔╝╚██████╔╝███████╗   ██║   
+    ╚═╝╚══════╝ ╚═════╝  ╚═════╝ ╚══════╝   ╚═╝   
+        MIL-INT PROTOCOL 09-███ // [REDACTED]                    
+───────────────────────────────────────────
+CONNECTION ESTABLISHED... ACCESSING DATA...
+[UNKNOWN SYSTEM BOOTING...]
+        
+⚠ WARNING: PARTIAL MEMORY FAILURE DETECTED. 
+⚠ UNAUTHORIZED ACCESS MAY RESULT IN SYSTEM BREACH. 
 
-    <nav>
-        <ul>
-            <li><a href="texts.html"><img src="assets/icons/texts.png" alt="Texts"></a></li>
-            <li><a href="audio.html"><img src="assets/icons/audio.png" alt="Audio"></a></li>
-            <li><a href="talks.html"><img src="assets/icons/talks.png" alt="Talks"></a></li>
-            <li><a href="exhibitions.html"><img src="assets/icons/exhibitions.png" alt="Exhibitions"></a></li>
-        </ul>
-    </nav>
+COMMANDS AVAILABLE:
+───────────────────────────────────────────
+> TYPE `look flyers`       [Curatorial Portfolio]
+> TYPE `access texts`      [Writings]
+> TYPE `scan audio`        [Audio Works]
+> TYPE `decrypt talks`     [Public Talks]
+> TYPE `initiate cipher`   [???]
+> TYPE `exit system`       [Shut Down]
 
-    <div class="container">
-        <h1 class="glitch">WELCOME TO THE NETWORK</h1>
-        <p class="flicker">Cybernetic flows of information...</p>
+Enter your command below:
+───────────────────────────────────────────
+        </pre>
+
+        <input type="text" id="command-input" placeholder="> TYPE HERE..." autofocus>
     </div>
 
-    <script src="js/scripts.js"></script>
+    <script src="game.js"></script>
+
 </body>
 </html>
-
-<div class="terminal">
-    <div class="typewriter-text">Welcome to the Cybernetic Skunkworks Terminal...</div>
-    <input type="text" class="input-field" id="userInput" />
-    <div class="output" id="output"></div>
-</div>
