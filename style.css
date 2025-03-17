@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
 
 body {
     background-color: black;
     color: #00ff00;
-    font-family: 'Jacquard 12', serif;
+    font-family: 'Syne Mono', monospace;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,12 +18,12 @@ body {
     height: 75vh;
     background: black;
     border: 2px solid #00ff00;
-    box-shadow: 0 0 10px #00ff00;
+    box-shadow: 0 0 15px #00ff00;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     overflow-y: auto;
 }
 
@@ -33,9 +33,7 @@ body {
     white-space: pre-wrap;
     width: 100%;
     text-align: left;
-    font-family: 'Jacquard 12', serif;
-    color: #00ff00; /* Ensures text is visible */
-    padding-bottom: 20px;
+    color: #00ff00;
 }
 
 /* Input Field */
@@ -48,15 +46,19 @@ body {
     padding: 10px;
     outline: none;
     text-align: center;
-    font-family: 'Jacquard 12', serif;
-    display: none; /* Starts hidden, but now properly revealed */
+    font-family: 'Syne Mono', monospace;
+    display: none;
 }
 
-/* Blinking Cursor */
-@keyframes cursorBlink {
-    50% { border-right: 2px solid transparent; }
-}
-#command-input {
-    animation: cursorBlink 1s infinite;
+/* Glitch Effects */
+@keyframes glitch {
+    0% { text-shadow: 2px 2px #ff0000; }
+    25% { text-shadow: -2px -2px #00ff00; }
+    50% { text-shadow: 2px -2px #0000ff; }
+    75% { text-shadow: -2px 2px #ffff00; }
+    100% { text-shadow: 2px 2px #ff0000; }
 }
 
+.glitch {
+    animation: glitch 0.5s infinite alternate;
+}
