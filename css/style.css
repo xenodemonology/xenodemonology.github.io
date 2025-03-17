@@ -1,47 +1,111 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 body {
-    background: #000;
-    color: #00ff00;
+    background-color: #1e1e1e; /* Dark grey background for the terminal look */
+    color: #d3d3d3; /* Light grey text for the terminal */
     font-family: 'VT323', monospace;
-    text-align: center;
+    font-size: 1.2rem;
     margin: 0;
     padding: 0;
-}
-
-/* CRT Scanlines */
-.crt-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../assets/images/crt-overlay.png');
-    opacity: 0.2;
-    pointer-events: none;
-}
-
-/* Navigation Pictographs */
-nav ul {
-    list-style: none;
+    overflow: hidden;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Terminal Container */
+.terminal {
+    width: 80%;
+    max-width: 900px;
+    height: 70%;
+    border: 2px solid #00ff00; /* Green border like an old terminal */
     padding: 20px;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px #00ff00;
+    overflow-y: auto;
+    color: #00ff00; /* Green text for terminal */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1.5rem;
+}
+
+/* Cursor animation */
+@keyframes cursor {
+    0% { border-right: 2px solid #00ff00; }
+    50% { border-right: 2px solid transparent; }
+    100% { border-right: 2px solid #00ff00; }
+}
+
+.input-field {
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    width: 100%;
+    outline: none;
+    caret-color: #00ff00; /* Makes the caret (blinking cursor) green */
+    animation: cursor 0.8s steps(1) infinite; /* Blinking cursor effect */
+}
+
+/* Typing effect for navigation links */
+@keyframes typewriting {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #00ff00;
+    animation: typewriting 3s steps(30) 1s forwards, cursor 0.8s steps(1) infinite;
+}
+
+/* Flickering Text */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.flicker {
+    font-size: 1.5rem;
+    animation: flicker 0.15s infinite alternate;
+}
+
+/* Navigation Links */
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin: 20px 0;
 }
 
 nav ul li {
-    margin: 0 15px;
+    display: inline-block;
+    margin: 0 20px;
 }
 
-nav ul li img {
-    width: 40px;
-    height: 40px;
-    filter: invert(100%);
-    transition: transform 0.3s ease-in-out;
+nav ul li a {
+    text-decoration: none;
+    color: #00ff00;
+    font-size: 1.4rem;
+    text-shadow: 2px 2px #000000;
+    display: block;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
 }
 
-nav ul li img:hover {
-    transform: scale(1.2);
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+nav ul li a:hover {
+    color: #ffff00;
+    text-shadow: 2px 2px #ff0000, -2px -2px #00ff00;
+    animation: glitch 0.2s infinite alternate;
 }
 
 /* Glitch Effect */
@@ -53,219 +117,53 @@ nav ul li img:hover {
     100% { text-shadow: 2px 2px #ff0000; }
 }
 
-.glitch {
-    font-size: 2.5rem;
+nav ul li a:hover {
     animation: glitch 0.2s infinite alternate;
 }
 
-/* Flickering Text */
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-.flicker {
-    font-size: 1.2rem;
-    animation: flicker 1.5s infinite alternate;
-}
-
-
-/* --- PLACE THE TEXT LIST STYLES HERE --- */
-
-/* Texts Page Styles */
-.text-list {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-.text-list li {
-    margin: 10px 0;
-}
-
-.text-list a {
-    color: #00ff00;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: all 0.3s ease-in-out;
-}
-
-.text-list a:hover {
-    text-shadow: 2px 2px #ff0000, -2px -2px #00ffff;
-    animation: glitch 0.2s infinite alternate;
-}
-
-/* --- PLACE AUDIO STYLES HERE --- */
-
-.audio-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.audio-item {
-    background: rgba(0, 255, 0, 0.1);
-    padding: 15px;
-    border: 1px solid #00ff00;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 0 5px #00ff00;
-}
-
-.audio-item h2 {
-    font-size: 1.2rem;
-    color: #00ff00;
-    margin-bottom: 10px;
-}
-
-/* --- PLACE TALKS STYLES HERE --- */
-
-.talks-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.talk-item {
-    background: rgba(0, 255, 0, 0.1);
-    padding: 20px;
-    border: 1px solid #00ff00;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 0 5px #00ff00;
-}
-
-.talk-item h2 {
-    font-size: 1.5rem;
-    color: #00ff00;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.talk-item p {
-    font-size: 1rem;
-    color: #00ff00;
-    margin: 5px 0;
-}
-
-.talk-label {
-    font-weight: bold;
-    color: #ff0000;
-    text-shadow: 1px 1px #00ff00;
-}
-
-/* --- PLACE Exhibitions STYLES HERE --- */
-
-.exhibition-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.exhibition-item {
-    background: rgba(0, 255, 0, 0.1);
-    padding: 20px;
-    border: 1px solid #00ff00;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 0 5px #00ff00;
-}
-
-.exhibition-item h2 {
-    font-size: 1.5rem;
-    color: #00ff00;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.exhibition-item p {
-    font-size: 1rem;
-    color: #00ff00;
-    margin: 5px 0;
-}
-
-.exhibition-label {
-    font-weight: bold;
-    color: #ff0000;
-    text-shadow: 1px 1px #00ff00;
-}
-
-/* Image Gallery */
-.image-gallery {
-    width: 100%;
-    overflow-x: auto;
+/* Adding effect for navigation links to type one by one on homepage */
+.typewriter-text {
+    font-size: 2rem;
+    font-family: 'VT323', monospace;
+    display: inline-block;
     white-space: nowrap;
-    margin-top: 40px;
-    padding: 10px 0;
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 10px #00ff00;
-}
-
-.image-track {
-    display: flex;
-    gap: 15px;
-    padding: 10px;
-}
-
-.image-track img {
-    width: 500px;
-    height: auto;
-    border: 2px solid #00ff00;
-    box-shadow: 0 0 10px #00ff00;
-    transition: transform 0.3s ease-in-out;
-}
-
-.image-track img:hover {
-    transform: scale(1.05);
-}
-
-/* Terminal Look and Feel */
-body {
-    background-color: black;
-    color: #00ff00;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.1rem;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     overflow: hidden;
+    border-right: 2px solid #00ff00;
+    animation: typewriter 4s steps(40) 1s 1 normal both, cursor 0.8s steps(1) infinite;
 }
 
-.terminal {
-    width: 80%;
-    height: 70%;
-    border: 1px solid #00ff00;
-    padding: 20px;
-    background-color: black;
-    overflow-y: auto;
-    box-shadow: 0 0 10px #00ff00;
-}
-
-input.input-field {
-    width: 100%;
-    background: black;
-    border: none;
+/* Style for terminal-like feedback when a command is entered */
+.output {
+    margin-top: 20px;
+    font-size: 1.5rem;
     color: #00ff00;
-    font-size: 1.1rem;
-    padding: 10px;
-    margin-top: 10px;
-    outline: none;
 }
 
-input.input-field:focus {
-    border: 1px solid #00ff00;
-    box-shadow: 0 0 10px #00ff00;
+.input-field {
+    font-size: 1.5rem;
+    color: #00ff00;
 }
+
+/* Special Effects */
+@keyframes terminalNoise {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+.noise {
+    animation: terminalNoise 0.5s infinite alternate;
+}
+
+/* Terminal Background */
+.terminal-background {
+    background-color: #1e1e1e;
+    color: #00ff00;
+    padding: 10px;
+    box-shadow: 0 0 5px #00ff00;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid #00ff00;
+}
+
 
