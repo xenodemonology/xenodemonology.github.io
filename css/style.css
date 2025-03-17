@@ -1,58 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* Importing a medieval-style font */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 
 body {
-    background-color: #1e1e1e; /* Dark grey background for the terminal look */
-    color: #d3d3d3; /* Light grey text for the terminal */
-    font-family: 'VT323', monospace;
-    font-size: 1.2rem;
+    background-color: #1a1a1a; /* Dark grey background with a medieval vibe */
+    color: #d0c18e; /* Pale golden color for the text */
+    font-family: 'MedievalSharp', cursive, 'Courier New', monospace;
+    font-size: 1.4rem; /* Slightly larger text for better readability */
     margin: 0;
     padding: 0;
     overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Added this to center items vertically */
-    height: 100vh;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;     /* Center the content vertically */
+    flex-direction: column;  /* Stack elements vertically */
+    height: 100vh;           /* Full screen height */
+    width: 100vw;            /* Full screen width */
 }
 
-/* Container for the terminal-like content */
+/* Terminal Window Styling */
 .terminal {
-    width: 90%;
+    width: 80%;
     max-width: 900px;
     height: 70%;
-    border: 2px solid #00ff00;
+    border: 2px solid #d0c18e;
     padding: 20px;
-    background-color: #1e1e1e;
-    box-shadow: 0 0 10px #00ff00;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 10px #d0c18e;
     overflow-y: auto;
-    color: #00ff00;
+    color: #d0c18e;
     white-space: pre-wrap;
     word-wrap: break-word;
     font-size: 1.5rem;
-    margin-top: 20px; /* Added margin to give some space from top */
+    margin-top: 20px;
+    line-height: 1.8;
 }
 
-/* Cursor animation */
+/* Custom Cursor Animation */
 @keyframes cursor {
-    0% { border-right: 2px solid #00ff00; }
+    0% { border-right: 2px solid #d0c18e; }
     50% { border-right: 2px solid transparent; }
-    100% { border-right: 2px solid #00ff00; }
+    100% { border-right: 2px solid #d0c18e; }
 }
 
 .input-field {
     background: transparent;
     border: none;
-    color: #00ff00;
-    font-family: 'VT323', monospace;
-    font-size: 1.5rem;
+    color: #d0c18e;
+    font-family: 'MedievalSharp', cursive, 'Courier New', monospace;
+    font-size: 1.6rem;
     width: 100%;
     outline: none;
-    caret-color: #00ff00;
+    caret-color: #d0c18e;
     animation: cursor 0.8s steps(1) infinite;
     margin-top: 10px;
 }
 
-/* Typing effect for navigation links */
+/* Medieval Typewriter Effect for Links */
 @keyframes typewriting {
     0% { width: 0; }
     100% { width: 100%; }
@@ -61,29 +64,29 @@ body {
 .typewriter {
     overflow: hidden;
     white-space: nowrap;
-    border-right: 2px solid #00ff00;
-    animation: typewriting 3s steps(30) 1s forwards, cursor 0.8s steps(1) infinite;
+    border-right: 2px solid #d0c18e;
+    animation: typewriting 4s steps(40) 1s forwards, cursor 0.8s steps(1) infinite;
 }
 
-/* Flickering Text */
+/* Flickering Text Effect for Title */
 @keyframes flicker {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+    50% { opacity: 0.5; }
 }
 
 .flicker {
-    font-size: 1.5rem;
-    animation: flicker 0.15s infinite alternate;
+    font-size: 2rem;
+    animation: flicker 1s infinite alternate;
 }
 
-/* Navigation Links */
+/* Navigation Styling */
 nav ul {
     list-style: none;
     padding: 0;
     text-align: center;
     margin: 20px 0;
     display: flex;
-    justify-content: center; /* Added flexbox to align navigation items */
+    justify-content: center;
     gap: 30px; /* Space between items */
 }
 
@@ -93,8 +96,8 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #00ff00;
-    font-size: 1.4rem;
+    color: #d0c18e;
+    font-size: 1.5rem;
     text-shadow: 2px 2px #000000;
     display: block;
     opacity: 0;
@@ -112,7 +115,7 @@ nav ul li a:hover {
     animation: glitch 0.2s infinite alternate;
 }
 
-/* Glitch Effect */
+/* Glitch Effect on hover */
 @keyframes glitch {
     0% { text-shadow: 2px 2px #ff0000; }
     25% { text-shadow: -2px -2px #00ff00; }
@@ -125,25 +128,18 @@ nav ul li a:hover {
     animation: glitch 0.2s infinite alternate;
 }
 
-/* Adding effect for navigation links to type one by one on homepage */
+/* Typewriter Text for Navigation Links */
 .typewriter-text {
     font-size: 2rem;
-    font-family: 'VT323', monospace;
+    font-family: 'MedievalSharp', cursive, 'Courier New', monospace;
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 2px solid #00ff00;
-    animation: typewriter 4s steps(40) 1s 1 normal both, cursor 0.8s steps(1) infinite;
+    border-right: 2px solid #d0c18e;
+    animation: typewriting 4s steps(40) 1s 1 normal both, cursor 0.8s steps(1) infinite;
 }
 
-/* Style for terminal-like feedback when a command is entered */
-.output {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    color: #00ff00;
-}
-
-/* Special Effects */
+/* Noise Effect */
 @keyframes terminalNoise {
     0% { opacity: 0.8; }
     50% { opacity: 1; }
@@ -154,28 +150,7 @@ nav ul li a:hover {
     animation: terminalNoise 0.5s infinite alternate;
 }
 
-/* Terminal Background */
-.terminal-background {
-    background-color: #1e1e1e;
-    color: #00ff00;
-    padding: 10px;
-    box-shadow: 0 0 5px #00ff00;
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
-    border: 1px solid #00ff00;
-}
-
-/* Adjusting the page content to prevent horizontal overflow */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* Flexbox for organizing text elements */
+/* Medieval Inspired Text Styling */
 .text-list {
     list-style-type: none;
     padding: 0;
@@ -187,7 +162,7 @@ body {
 }
 
 .text-list a {
-    color: #00ff00;
+    color: #d0c18e;
     text-decoration: none;
     font-size: 1.2rem;
     transition: all 0.3s ease-in-out;
@@ -209,16 +184,16 @@ body {
 .audio-item {
     background: rgba(0, 255, 0, 0.1);
     padding: 15px;
-    border: 1px solid #00ff00;
+    border: 1px solid #d0c18e;
     width: 80%;
     max-width: 600px;
     text-align: center;
-    box-shadow: 0 0 5px #00ff00;
+    box-shadow: 0 0 5px #d0c18e;
 }
 
 .audio-item h2 {
     font-size: 1.2rem;
-    color: #00ff00;
+    color: #d0c18e;
     margin-bottom: 10px;
 }
 
@@ -233,30 +208,30 @@ body {
 .talk-item {
     background: rgba(0, 255, 0, 0.1);
     padding: 20px;
-    border: 1px solid #00ff00;
+    border: 1px solid #d0c18e;
     width: 80%;
     max-width: 600px;
     text-align: center;
-    box-shadow: 0 0 5px #00ff00;
+    box-shadow: 0 0 5px #d0c18e;
 }
 
 .talk-item h2 {
     font-size: 1.5rem;
-    color: #00ff00;
+    color: #d0c18e;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
 .talk-item p {
     font-size: 1rem;
-    color: #00ff00;
+    color: #d0c18e;
     margin: 5px 0;
 }
 
 .talk-label {
     font-weight: bold;
     color: #ff0000;
-    text-shadow: 1px 1px #00ff00;
+    text-shadow: 1px 1px #d0c18e;
 }
 
 /* Exhibition Styles */
@@ -271,30 +246,30 @@ body {
 .exhibition-item {
     background: rgba(0, 255, 0, 0.1);
     padding: 20px;
-    border: 1px solid #00ff00;
+    border: 1px solid #d0c18e;
     width: 80%;
     max-width: 600px;
     text-align: center;
-    box-shadow: 0 0 5px #00ff00;
+    box-shadow: 0 0 5px #d0c18e;
 }
 
 .exhibition-item h2 {
     font-size: 1.5rem;
-    color: #00ff00;
+    color: #d0c18e;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
 .exhibition-item p {
     font-size: 1rem;
-    color: #00ff00;
+    color: #d0c18e;
     margin: 5px 0;
 }
 
 .exhibition-label {
     font-weight: bold;
     color: #ff0000;
-    text-shadow: 1px 1px #00ff00;
+    text-shadow: 1px 1px #d0c18e;
 }
 
 /* Image Gallery */
@@ -305,7 +280,7 @@ body {
     margin-top: 40px;
     padding: 10px 0;
     background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 10px #00ff00;
+    box-shadow: 0 0 10px #d0c18e;
 }
 
 .image-track {
@@ -317,13 +292,5 @@ body {
 .image-track img {
     width: 500px;
     height: auto;
-    border: 2px solid #00ff00;
-    box-shadow: 0 0 10px #00ff00;
-    transition: transform 0.3s ease-in-out;
-}
-
-.image-track img:hover {
-    transform: scale(1.05);
-}
-
+    border: 2px solid #
 
