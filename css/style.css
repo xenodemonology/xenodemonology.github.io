@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+12+Charted&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
 
 body {
     background-color: #000000; /* Black background for stark contrast */
     color: #FFFFFF; /* White text for high visibility */
-    font-family: 'Jacquard 12 Charted', serif; /* Use custom Jacquard font */
+    font-family: 'Jacquard 12', serif; /* Use Jacquard 12 font */
     font-size: 1.4rem; /* Slightly larger text for readability */
     margin: 0;
     padding: 0;
